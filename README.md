@@ -4,6 +4,12 @@ Batch-render camera angle variations and pose transfers from a single image usin
 
 When training LoRAs or building 3D assets, you often need systematic multi-angle renders or posed variations of a subject. Manually running ComfyUI workflows for every combination is tedious. This script automates the entire process — submit one image, get back a complete set of variations.
 
+### Original
+
+![Original character reference](examples/chararcter_ref.png)
+
+![Context views](examples/context_1x4.jpg)
+
 ## Supported Pipelines
 
 | Pipeline | LoRAs | Variations | Method |
@@ -18,9 +24,13 @@ When training LoRAs or building 3D assets, you often need systematic multi-angle
 - **Elevations** (4 for 2511, 3 for 2509): -30, 0, 30, 60 degrees
 - **Distances** (3): 0.6 (close-up), 1.0 (medium), 1.8 (wide)
 
+![Multi-angle example output](examples/angles_4x4.jpg)
+
 ### AnyPose
 
 Transfers poses from reference images (OpenPose skeletons, photos, etc.) onto your subject. Pose images are automatically padded to square and background-matched to the reference image before upload.
+
+![AnyPose example output](examples/poses_4x4.jpg)
 
 ## Included Pose Images
 

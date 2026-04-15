@@ -10,3 +10,5 @@ pose-depot/
 *.jpg
 *.jpeg
 !poses/**/*.png
+!examples/**
+.DS_Store
