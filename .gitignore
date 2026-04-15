@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+multi_angle_output*/
+*.png
+*.jpg
+*.jpeg
