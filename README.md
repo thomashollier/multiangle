@@ -18,6 +18,8 @@ When training LoRAs or building character assets, you often need systematic mult
 | **2509** | [dx8152 Multi-Angles](https://huggingface.co/dx8152/Qwen-Edit-2509-Multiple-angles) | 72 (8 az x 3 el x 3 dist) | Bilingual text prompts |
 | **anypose** | [lilylilith/AnyPose](https://huggingface.co/lilylilith/AnyPose) | Per pose image | Pose transfer from reference images |
 | **expressions** | Qwen-Image-Edit-2511 + Lightning | 16 emotions | Prompt-driven facial expression editing |
+| **lighting** | Qwen-Image-Edit-2511 + Lightning | 4 variations | Prompt-driven lighting changes |
+| **outfits** | Qwen-Image-Edit-2511 + Lightning | 4 variations | Prompt-driven outfit changes |
 
 ### Multi-Angle Grid (2511 / 2509)
 
@@ -38,6 +40,42 @@ Transfers poses from reference images (OpenPose skeletons, photos, etc.) onto yo
 Generates 16 facial expression variations from a single image using Qwen Image Edit 2511 with prompt-driven editing. Expressions include body language cues that carry the emotion. Included expressions: neutral, happy, laughing, smirk, sad, crying, angry, disgusted, surprised, fearful, confused, determined, flirty, contempt, embarrassed, sleepy.
 
 ![Expressions example output](examples/expressions_4x4.jpg)
+
+### Lighting
+
+Renders the character under different lighting conditions while preserving identity and pose.
+
+![Lighting example output](examples/lighting_1x4.jpg)
+
+### Outfits
+
+Renders the character in different outfits while preserving identity and pose.
+
+![Outfits example output](examples/outfits_1x4.jpg)
+
+### Customizing Lighting & Outfit Prompts
+
+The `lighting` and `outfits` pipelines ship with default prompts designed for the example character (a young girl in a peace sign t-shirt). **You should customize these prompts for your own character.** A soldier, a robot, or a fantasy elf would each need different outfit and lighting descriptions.
+
+Edit the `LIGHTING` and `OUTFITS` dictionaries in `batch_multi_angle.py`:
+
+```python
+LIGHTING = {
+    "rim_light":     "Change the lighting so a bright light source is ...",
+    "side_light":    "Change the lighting to strong directional side lighting ...",
+    "golden_hour":   "Change the lighting to warm golden hour sunlight ...",
+    "moonlight":     "Change the lighting to cool blue moonlight ...",
+}
+
+OUTFITS = {
+    "formal":        "Change the outfit to ...",
+    "athletic":      "Change the outfit to ...",
+    "winter":        "Change the outfit to ...",
+    "work":          "Change the outfit to ...",
+}
+```
+
+Add or remove entries as needed — the script will automatically generate one image per entry. Use `--dry-run` to preview all prompts before rendering.
 
 ## Included Pose Images
 
@@ -70,6 +108,12 @@ python batch_multi_angle.py --image photo.png --cloud --pipeline anypose --pose-
 # Expressions: generate 16 facial expression variations
 python batch_multi_angle.py --image photo.png --cloud --pipeline expressions
 
+# Lighting: render under different lighting conditions
+python batch_multi_angle.py --image photo.png --cloud --pipeline lighting
+
+# Outfits: render in different outfits
+python batch_multi_angle.py --image photo.png --cloud --pipeline outfits
+
 # Different seed (output dir auto-named by pipeline + seed)
 python batch_multi_angle.py --image photo.png --cloud --seed 123
 
@@ -89,7 +133,7 @@ python batch_multi_angle.py --image photo.png --cloud --dry-run
 |------|---------|-------------|
 | `--image` | (required) | Input image path |
 | `--cloud` | off | Use Comfy Cloud (otherwise targets local ComfyUI) |
-| `--pipeline` | `2511` | `2509`, `2511`, `anypose`, or `expressions` |
+| `--pipeline` | `2511` | `2509`, `2511`, `anypose`, `expressions`, `lighting`, or `outfits` |
 | `--pose-dir` | — | Directory of pose images (required for `anypose`) |
 | `--output` | auto | Output directory (default: `./multi_angle_output_{pipeline}_seed{seed}`) |
 | `--seed` | `42` | Random seed |
@@ -121,6 +165,10 @@ pose_15F_Flying_Superhero_OpenPoseFull_3.png
 # Expressions
 expr_happy.png
 expr_surprised.png
+
+# Lighting / Outfits
+light_rim_light.png
+outfit_work.png
 ```
 
 Existing files are automatically skipped, so you can safely re-run to fill in any gaps.

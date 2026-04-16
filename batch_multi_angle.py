@@ -130,6 +130,30 @@ EXPRESSIONS = {
     "sleepy":        "Change to a neutral relaxed expression but lower the eyelids about a third of the way closed. Keep eyebrows in their natural position, just slightly relaxed. Closed mouth with barely upturned lip corners, fully relaxed jaw, serene surrendered expression.",
 }
 
+LIGHTING = {
+    "rim_light":     "Change the lighting so a bright light source is directly behind the figure, creating a glowing outline around the hair and shoulders. The front of the face is darker with only ambient fill light.",
+    "side_light":    "Change the lighting to strong directional side lighting from the left, casting deep shadows on the right side of the face and body.",
+    "golden_hour":   "Change the lighting to warm golden hour sunlight, with long soft shadows and a warm orange glow on the skin.",
+    "moonlight":     "Change the lighting to cool blue moonlight at night, with soft shadows and a pale silvery glow on the face.",
+}
+
+LIGHTING_PREFIX = (
+    "Keep the same pose, outfit, hairstyle, hair color, identity, and facial expression. "
+    "Only change the lighting and shadows. "
+)
+
+OUTFITS = {
+    "formal":        "Change the outfit to a simple nice sundress that is a little too fancy for her, keep the same facial expression, pose, and background.",
+    "athletic":      "Change the outfit to a sporty soccer jersey with short tight sleeves and a team crest on the chest, keep the same pose and background.",
+    "winter":        "Change the outfit to a cozy winter outfit with a knit sweater, scarf, and warm jacket, keep the same pose and background.",
+    "work":          "Change the outfit to a plant nursery work apron over a green t-shirt, with soil stains on the apron, a small plant seedling poking out of the front pocket, and a hand trowel tucked in the left side of the apron. A small name tag pinned to the upper right of the apron. Do not change the background, keep the original plain background.",
+}
+
+OUTFITS_PREFIX = (
+    "Keep the same pose, hairstyle, hair color, identity, facial expression, and background. "
+    "Only change the clothing. "
+)
+
 EXPRESSION_PREFIX = (
     "Keep the same outfit, hairstyle, hair color, background, lighting, "
     "and identity. Clothing should move naturally with the body. "
@@ -174,7 +198,7 @@ def build_workflow(
             image_filename, pose_image_filename, prompt, seed, steps,
             guidance_scale, lora_strength_lightning, filename_prefix,
         )
-    if pipeline == "expressions":
+    if pipeline in ("expressions", "lighting", "outfits"):
         return build_workflow_expressions(
             image_filename, prompt, seed, steps, guidance_scale,
             lora_strength_lightning, filename_prefix,
@@ -1214,8 +1238,9 @@ def main():
     p.add_argument("--azimuths", default=None, help="Subset, e.g. 0,90,180,270")
     p.add_argument("--elevations", default=None, help="Subset, e.g. -30,0,30,60")
     p.add_argument("--distances", default=None, help="Subset, e.g. 0.6,1.0,1.8")
-    p.add_argument("--pipeline", default="2511", choices=["2509", "2511", "anypose", "expressions"],
-                   help="Model pipeline: 2509, 2511 (default), anypose, or expressions")
+    p.add_argument("--pipeline", default="2511",
+                   choices=["2509", "2511", "anypose", "expressions", "lighting", "outfits"],
+                   help="Model pipeline: 2509, 2511 (default), anypose, expressions, lighting, or outfits")
     p.add_argument("--pose-dir", default=None,
                    help="Directory of pose images (required for --pipeline anypose)")
     p.add_argument("--prompt-append", default="",
@@ -1247,12 +1272,25 @@ def main():
     suffix = f" {args.prompt_append}" if args.prompt_append else ""
 
     if args.pipeline == "expressions":
-        # Expressions: iterate over predefined expression prompts
         jobs = [
             (None, None, None,
              EXPRESSION_PREFIX + desc + suffix,
              f"expr_{name}.png")
             for name, desc in EXPRESSIONS.items()
+        ]
+    elif args.pipeline == "lighting":
+        jobs = [
+            (None, None, None,
+             LIGHTING_PREFIX + desc + suffix,
+             f"light_{name}.png")
+            for name, desc in LIGHTING.items()
+        ]
+    elif args.pipeline == "outfits":
+        jobs = [
+            (None, None, None,
+             OUTFITS_PREFIX + desc + suffix,
+             f"outfit_{name}.png")
+            for name, desc in OUTFITS.items()
         ]
     elif args.pipeline == "anypose":
         # AnyPose: iterate over pose images from a directory
@@ -1288,6 +1326,10 @@ def main():
         print(f"  Qwen Image Edit — AnyPose Batch Renderer")
     elif args.pipeline == "expressions":
         print(f"  Qwen Image Edit — Expression Batch Renderer")
+    elif args.pipeline == "lighting":
+        print(f"  Qwen Image Edit — Lighting Variation Renderer")
+    elif args.pipeline == "outfits":
+        print(f"  Qwen Image Edit — Outfit Variation Renderer")
     else:
         print(f"  Qwen Image Edit {args.pipeline} — Multi-Angle Batch Renderer")
     print(f"{'='*64}")
@@ -1296,8 +1338,12 @@ def main():
         print(f"  Pose Dir: {args.pose_dir}  ({total} poses)")
     elif args.pipeline == "expressions":
         print(f"  Expressions: {total}")
+    elif args.pipeline == "lighting":
+        print(f"  Lighting: {total} variations")
+    elif args.pipeline == "outfits":
+        print(f"  Outfits: {total} variations")
     print(f"  Output  : {args.output}")
-    if args.pipeline not in ("anypose", "expressions"):
+    if args.pipeline not in ("anypose", "expressions", "lighting", "outfits"):
         print(f"  Poses   : {total}  ({len(azimuths)} az × {len(elevations)} el × {len(distances)} dist)")
     print(f"  Steps   : {args.steps}  |  CFG: {args.guidance}  |  Seed: {args.seed}")
     print(f"  Pipeline: {args.pipeline}")
