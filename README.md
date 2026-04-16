@@ -17,6 +17,7 @@ When training LoRAs or building character assets, you often need systematic mult
 | **2511** (default) | [fal Multi-Angles](https://huggingface.co/fal/Qwen-Image-Edit-2511-Multiple-Angles-LoRA) | 96 (8 az x 4 el x 3 dist) | `QwenMultiangleCameraNode` |
 | **2509** | [dx8152 Multi-Angles](https://huggingface.co/dx8152/Qwen-Edit-2509-Multiple-angles) | 72 (8 az x 3 el x 3 dist) | Bilingual text prompts |
 | **anypose** | [lilylilith/AnyPose](https://huggingface.co/lilylilith/AnyPose) | Per pose image | Pose transfer from reference images |
+| **poses_prompt** | Qwen-Image-Edit-2511 + Lightning | 16 poses | Prompt-driven body pose variations |
 | **expressions** | Qwen-Image-Edit-2511 + Lightning | 16 emotions | Prompt-driven facial expression editing |
 | **lighting** | Qwen-Image-Edit-2511 + Lightning | 4 variations | Prompt-driven lighting changes |
 | **outfits** | Qwen-Image-Edit-2511 + Lightning | 4 variations | Prompt-driven outfit changes |
@@ -34,6 +35,12 @@ When training LoRAs or building character assets, you often need systematic mult
 Transfers poses from reference images (OpenPose skeletons, photos, etc.) onto your subject. Pose images are automatically padded to square and background-matched to the reference image before upload.
 
 ![AnyPose example output](examples/poses_4x4.jpg)
+
+### Prompt Poses
+
+Generates 16 body pose variations using text prompts only (no pose reference images needed). Each prompt describes specific limb positions, body angles, and activities.
+
+![Prompt poses example output](examples/poses_prompt_4x4.jpg)
 
 ### Expressions
 
@@ -105,6 +112,9 @@ python batch_multi_angle.py --image photo.png --cloud --pipeline 2509
 # AnyPose: transfer poses from a directory of pose images
 python batch_multi_angle.py --image photo.png --cloud --pipeline anypose --pose-dir ./poses/F
 
+# Prompt poses: generate 16 body pose variations
+python batch_multi_angle.py --image photo.png --cloud --pipeline poses_prompt
+
 # Expressions: generate 16 facial expression variations
 python batch_multi_angle.py --image photo.png --cloud --pipeline expressions
 
@@ -133,7 +143,7 @@ python batch_multi_angle.py --image photo.png --cloud --dry-run
 |------|---------|-------------|
 | `--image` | (required) | Input image path |
 | `--cloud` | off | Use Comfy Cloud (otherwise targets local ComfyUI) |
-| `--pipeline` | `2511` | `2509`, `2511`, `anypose`, `expressions`, `lighting`, or `outfits` |
+| `--pipeline` | `2511` | `2509`, `2511`, `anypose`, `poses_prompt`, `expressions`, `lighting`, or `outfits` |
 | `--pose-dir` | — | Directory of pose images (required for `anypose`) |
 | `--output` | auto | Output directory (default: `./multi_angle_output_{pipeline}_seed{seed}`) |
 | `--seed` | `42` | Random seed |

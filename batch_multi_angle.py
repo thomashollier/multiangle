@@ -154,6 +154,31 @@ OUTFITS_PREFIX = (
     "Only change the clothing. "
 )
 
+POSES = {
+    "running":        "Change the pose to running at full speed. Left leg extended forward, right leg pushing off behind. Arms bent at elbows pumping in opposite rhythm to legs. Torso leaning forward, hair flowing back.",
+    "jumping_joy":    "Change the pose to jumping in the air with joy. Both feet off the ground, knees bent. Both arms raised high above the head, fingers spread wide. Head tilted up, back slightly arched.",
+    "sitting_cross":  "Change the pose to sitting cross-legged on the ground. Legs folded with ankles crossed, hands resting on knees. Back straight, shoulders relaxed, head level.",
+    "waving":         "Change the pose to waving hello. Right arm raised high above the shoulder, hand open with fingers together, wrist tilted side to side. Left arm relaxed at the side. Weight on both feet, slight lean toward the viewer.",
+    "thinking":       "Change the pose to deep in thought. Right hand raised to chin, index finger touching the lower lip. Left arm crossed under the right elbow. Weight shifted to left leg, right foot slightly forward. Head tilted slightly to the right, eyes looking up.",
+    "dancing":        "Change the pose to dancing energetically. Right arm extended out to the side at shoulder height, left arm bent with hand near the face. Right leg stepping to the side with pointed toe, left leg bent at the knee. Hips shifted to the left, torso twisting.",
+    "walking":        "Change the pose to walking at a casual pace, viewed from a 3/4 angle. Left leg stepping forward, right leg behind mid-stride. Left arm swinging back, right arm swinging forward naturally. Torso upright, head facing the walking direction.",
+    "crouching":      "Change the pose to crouching down low. Knees deeply bent, body low to the ground. Arms resting on top of the knees, hands dangling. Head ducked forward, looking up from below.",
+    "pointing":       "Change the pose to pointing at something in the distance. Right arm fully extended forward, index finger pointing. Left hand on hip. Body turned slightly to the right, weight on the right foot, left foot angled out.",
+    "hands_on_hips":  "Change the pose to standing confidently with both hands on hips. Elbows pushed out wide, fingers wrapped around the waist. Feet shoulder-width apart, chest out, chin raised slightly.",
+    "kicking":        "Change the pose to kicking a ball. Right leg swung forward and up at hip height, toes pointed. Left leg planted firmly, slightly bent. Arms out to the sides for balance. Torso leaning back slightly.",
+    "jump_rope":      "Change the pose to jumping rope, viewed from a slight 3/4 angle. She is at the peak of her jump with both feet off the ground, one knee higher than the other. The rope passing beneath her feet. Body slightly turned, not perfectly symmetrical. Hair flying up, joyful expression.",
+    "talking":        "Change the pose to standing at a 3/4 angle, in confident conversation. One hand raised at chest height with palm up, making a calm deliberate gesture. Other hand relaxed at her side. Weight on one leg, posture upright and poised. Calm confident expression, slight smile, speaking with composure.",
+    "leaning_wall":   "Change the pose to leaning against a wall. Right shoulder pressed against the wall, arms crossed over the chest. Right leg crossed over the left at the ankle. Head tilted slightly, looking forward with a relaxed expression.",
+    "reading":        "Change the pose to sitting on an institutional mid-century light colored wood chair, reading a book, viewed from a slight 3/4 right angle. Legs crossed at the ankles, leaning back comfortably. Both hands holding an open book at chest height, head tilted down looking at the pages. Relaxed, absorbed expression.",
+    "shy_stance":     "Change the pose to a shy, bashful stance. Hands clasped together in front of the body at waist level, fingers intertwined. Shoulders raised slightly, one foot turned inward pigeon-toed. Head tilted down with eyes looking up.",
+}
+
+POSES_PREFIX = (
+    "Keep the same outfit, hairstyle, hair color, identity, and the same plain solid color background. "
+    "Do not change the background color or add any scene elements. "
+    "Clothing should move naturally with the body. "
+)
+
 EXPRESSION_PREFIX = (
     "Keep the same outfit, hairstyle, hair color, background, lighting, "
     "and identity. Clothing should move naturally with the body. "
@@ -198,7 +223,7 @@ def build_workflow(
             image_filename, pose_image_filename, prompt, seed, steps,
             guidance_scale, lora_strength_lightning, filename_prefix,
         )
-    if pipeline in ("expressions", "lighting", "outfits"):
+    if pipeline in ("expressions", "lighting", "outfits", "poses_prompt"):
         return build_workflow_expressions(
             image_filename, prompt, seed, steps, guidance_scale,
             lora_strength_lightning, filename_prefix,
@@ -979,6 +1004,25 @@ async def cloud_submit(session, api_key, workflow):
         return (await resp.json())["prompt_id"]
 
 
+def cleanup_checkerboard(output_path, ref_image_path):
+    """Replace checkerboard artifacts near the background color with solid bg."""
+    try:
+        from PIL import Image
+        import numpy as np
+        ref = Image.open(ref_image_path).convert("RGB")
+        arr = np.array(ref)
+        edges = np.concatenate([arr[0], arr[-1], arr[:, 0], arr[:, -1]])
+        bg = edges.mean(axis=0).astype(int)
+
+        img = Image.open(output_path).convert("RGB")
+        a = np.array(img)
+        diff = np.abs(a.astype(int) - bg.astype(int)).sum(axis=2)
+        a[diff < 60] = bg
+        Image.fromarray(a).save(output_path)
+    except Exception:
+        pass  # non-critical, skip if it fails
+
+
 async def cloud_download(session, api_key, filename, output_path):
     """Download an output file via /api/view (follows redirect to storage)."""
     params = urllib.parse.urlencode({"filename": filename, "subfolder": "", "type": "output"})
@@ -1162,6 +1206,7 @@ async def _process_batch_ws(jobs, args, api_key, session):
                         try:
                             await cloud_download(session, api_key,
                                                  images[0]["filename"], out)
+                            cleanup_checkerboard(out, args.image)
                             print(f"  [{idx:3d}/{total}] ✓ {fname}")
                             print(f"           prompt: {prompt}")
                             ok += 1
@@ -1239,8 +1284,8 @@ def main():
     p.add_argument("--elevations", default=None, help="Subset, e.g. -30,0,30,60")
     p.add_argument("--distances", default=None, help="Subset, e.g. 0.6,1.0,1.8")
     p.add_argument("--pipeline", default="2511",
-                   choices=["2509", "2511", "anypose", "expressions", "lighting", "outfits"],
-                   help="Model pipeline: 2509, 2511 (default), anypose, expressions, lighting, or outfits")
+                   choices=["2509", "2511", "anypose", "expressions", "lighting", "outfits", "poses_prompt"],
+                   help="Model pipeline: 2509, 2511 (default), anypose, expressions, lighting, outfits, or poses_prompt")
     p.add_argument("--pose-dir", default=None,
                    help="Directory of pose images (required for --pipeline anypose)")
     p.add_argument("--prompt-append", default="",
@@ -1271,7 +1316,14 @@ def main():
 
     suffix = f" {args.prompt_append}" if args.prompt_append else ""
 
-    if args.pipeline == "expressions":
+    if args.pipeline == "poses_prompt":
+        jobs = [
+            (None, None, None,
+             POSES_PREFIX + desc + suffix,
+             f"pose_{name}.png")
+            for name, desc in POSES.items()
+        ]
+    elif args.pipeline == "expressions":
         jobs = [
             (None, None, None,
              EXPRESSION_PREFIX + desc + suffix,
@@ -1324,6 +1376,8 @@ def main():
     print(f"\n{'='*64}")
     if args.pipeline == "anypose":
         print(f"  Qwen Image Edit — AnyPose Batch Renderer")
+    elif args.pipeline == "poses_prompt":
+        print(f"  Qwen Image Edit — Prompt Pose Batch Renderer")
     elif args.pipeline == "expressions":
         print(f"  Qwen Image Edit — Expression Batch Renderer")
     elif args.pipeline == "lighting":
@@ -1336,6 +1390,8 @@ def main():
     print(f"  Input   : {args.image}")
     if args.pipeline == "anypose":
         print(f"  Pose Dir: {args.pose_dir}  ({total} poses)")
+    elif args.pipeline == "poses_prompt":
+        print(f"  Poses: {total}")
     elif args.pipeline == "expressions":
         print(f"  Expressions: {total}")
     elif args.pipeline == "lighting":
@@ -1343,7 +1399,7 @@ def main():
     elif args.pipeline == "outfits":
         print(f"  Outfits: {total} variations")
     print(f"  Output  : {args.output}")
-    if args.pipeline not in ("anypose", "expressions", "lighting", "outfits"):
+    if args.pipeline not in ("anypose", "expressions", "lighting", "outfits", "poses_prompt"):
         print(f"  Poses   : {total}  ({len(azimuths)} az × {len(elevations)} el × {len(distances)} dist)")
     print(f"  Steps   : {args.steps}  |  CFG: {args.guidance}  |  Seed: {args.seed}")
     print(f"  Pipeline: {args.pipeline}")
