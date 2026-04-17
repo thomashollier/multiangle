@@ -107,7 +107,7 @@ Add or remove entries as needed — the script will automatically generate one i
 
 ## Presentation Template
 
-Generate a PowerPoint presentation as a starting shell for your character sheet. The output is a template to build from — not a client-ready document, but a structured starting point with your renders laid out across slides.
+Generate a PowerPoint presentation template to start from.
 
 ```bash
 python make_presentation.py --image ref.png --name "Nora" \
