@@ -1,0 +1,56 @@
+{
+  "1": {
+    "inputs": {
+      "detect_hand": "enable",
+      "detect_body": "enable",
+      "detect_face": "enable",
+      "resolution": 1024,
+      "bbox_detector": "yolox_l.onnx",
+      "pose_estimator": "dw-ll_ucoco_384_bs5.torchscript.pt",
+      "scale_stick_for_xinsr_cn": "disable",
+      "image": [
+        "9",
+        0
+      ]
+    },
+    "class_type": "DWPreprocessor",
+    "_meta": {
+      "title": "DWPose Estimator"
+    }
+  },
+  "9": {
+    "inputs": {
+      "image": "6c48b5f71a403f7754cba63e443931fbb23366ec8af3f1b0f77582d39636844d.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "10": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "14": {
+    "inputs": {
+      "filename_prefix": "PoseKeypoint",
+      "pose_kps": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "SavePoseKpsAsJsonFile",
+    "_meta": {
+      "title": "Save Pose Keypoints"
+    }
+  }
+}

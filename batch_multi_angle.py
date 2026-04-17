@@ -171,6 +171,102 @@ POSES = {
     "leaning_wall":   "Change the pose to leaning against a wall. Right shoulder pressed against the wall, arms crossed over the chest. Right leg crossed over the left at the ankle. Head tilted slightly, looking forward with a relaxed expression.",
     "reading":        "Change the pose to sitting on an institutional mid-century light colored wood chair, reading a book, viewed from a slight 3/4 right angle. Legs crossed at the ankles, leaning back comfortably. Both hands holding an open book at chest height, head tilted down looking at the pages. Relaxed, absorbed expression.",
     "shy_stance":     "Change the pose to a shy, bashful stance. Hands clasped together in front of the body at waist level, fingers intertwined. Shoulders raised slightly, one foot turned inward pigeon-toed. Head tilted down with eyes looking up.",
+    "tpose":          "Change the pose to a T-pose, facing directly toward the camera. Standing perfectly straight with feet together. Both arms extended straight out to the sides at exactly shoulder height, palms facing down, fingers together. Arms must be fully horizontal, forming a perfect T shape with the torso. Head facing forward, looking straight at the camera with a neutral expression. Keep the character's full body proportions, do not make the body thinner or narrower.",
+    "tpose_palms":    "Change the pose to a T-pose, facing directly toward the camera. Standing perfectly straight with feet together. Both arms extended straight out to the sides at exactly shoulder height. Wrists fully rotated so both open palms face completely toward the camera, with all five fingers on each hand spread wide apart and fully visible. The hands should be flat and open like a stop gesture, rotated 90 degrees from the arms so the full palm and all fingers are clearly seen. Arms must be fully horizontal, forming a perfect T shape with the torso. Head facing forward, looking straight at the camera with a neutral expression. Keep the character's full body proportions, do not make the body thinner or narrower.",
+    "tpose_34_palms": "Change the pose to a T-pose, viewed from a 3/4 angle (body turned about 30 degrees to the left). Full body visible from head to feet. Both arms extended straight out to the sides at exactly shoulder height. Wrists rotated forward with thumbs pointing up, palms open, fingers spread wide apart. Arms must be fully horizontal, forming a perfect T shape with the torso. Her face is aligned with her body facing the left edge of the frame, eyes looking left of the camera. Keep the character's full body proportions, do not make the body thinner or narrower.",
+    "tpose_palms_high": "Change the pose to a T-pose. The photo is taken by a tall person standing close, holding the camera at their eye level and pointing it downward at the shorter character. The character's head appears larger and closer to camera, her feet appear smaller and further away due to the downward perspective. Foreshortening is visible in the body. Her t-shirt and body are facing 30 degrees down from the camera, we see the top of her shoulders. Full body visible from head to feet. Both arms extended straight out to the sides at exactly shoulder height. Wrists rotated forward with thumbs pointing toward the top of the frame and pinky fingers closer to the floor than the thumbs, palms open and aligned with the body pointing 30 degrees below the camera, all five fingers on each hand spread wide apart and clearly visible. Arms fully horizontal forming a T shape. Her head is facing below the camera and her eyes are looking below camera. We see the top of her head and her hair part. Keep the character's full body proportions, do not make the body thinner or narrower.",
+    "tpose_left_30":    "Change the pose to a T-pose, shot with a wide angle lens up close showing full body from head to feet. The body is turned 30 degrees to the left. Both arms extended straight out to the sides at shoulder height. Wrists rotated forward with thumbs pointing up, palms facing forward, all five fingers spread apart and visible. Arms fully horizontal forming a T shape. Her face and eyes are aligned with her body direction, looking left. Keep the character's full body proportions, do not make the body thinner or narrower.",
+    "tpose_left_60":    "Change the pose to a T-pose, shot with a wide angle lens up close showing full body from head to feet. The body is turned 60 degrees to the left. Both arms extended straight out to the sides at shoulder height. Wrists rotated forward with thumbs pointing up, palms facing forward, all five fingers spread apart and visible. Arms fully horizontal forming a T shape. Her face and eyes are aligned with her body direction, looking left. Keep the character's full body proportions, do not make the body thinner or narrower.",
+    "tpose_left_90":    "Change the pose to a T-pose, shot with a wide angle lens up close showing full body from head to feet. The body is turned 90 degrees to the left, showing a perfect side profile. Both arms extended straight out — one arm pointing directly toward the camera, the other pointing directly away. Wrists rotated so palms face forward, all five fingers spread apart. Arms fully horizontal forming a T shape. Her face is in profile, looking left. Keep the character's full body proportions, do not make the body thinner or narrower.",
+    "tpose_right_30":   "Change the pose to a T-pose, shot with a wide angle lens up close showing full body from head to feet. The body is turned 30 degrees to the right. Both arms extended straight out to the sides at shoulder height. Wrists rotated forward with thumbs pointing up, palms facing forward, all five fingers spread apart and visible. Arms fully horizontal forming a T shape. Her face and eyes are aligned with her body direction, looking right. Keep the character's full body proportions, do not make the body thinner or narrower.",
+    "tpose_right_60":   "Change the pose to a T-pose, shot with a wide angle lens up close showing full body from head to feet. The body is turned 60 degrees to the right. Both arms extended straight out to the sides at shoulder height. Wrists rotated forward with thumbs pointing up, palms facing forward, all five fingers spread apart and visible. Arms fully horizontal forming a T shape. Her face and eyes are aligned with her body direction, looking right. Keep the character's full body proportions, do not make the body thinner or narrower.",
+    "tpose_right_90":   "Change the pose to a T-pose, shot with a wide angle lens up close showing full body from head to feet. The body is turned 90 degrees to the right, showing a perfect side profile. Both arms extended straight out — one arm pointing directly toward the camera, the other pointing directly away. Wrists rotated so palms face forward, all five fingers spread apart. Arms fully horizontal forming a T shape. Her face is in profile, looking right. Keep the character's full body proportions, do not make the body thinner or narrower.",
+    "apose":            "Change the pose to a standard A-pose, facing directly toward the camera. Standing perfectly straight with feet shoulder-width apart. Both arms extended down and out to the sides at about 45 degrees from the body, forming an A shape. Wrists rotated forward with thumbs pointing up, palms open, fingers spread apart. Head facing forward, looking straight at the camera with a neutral expression. Keep the character's full body proportions, do not make the body thinner or narrower.",
+
+    # ── A-pose 30° experiments (12 variations) ────────────────────────
+    "apose_30_v01": "Change the pose to a standard A-pose. Her body is turned 30 degrees to the right — a slight angle, mostly frontal. Arms held away from body at 45 degree angle downward, hands open. Face looking in same direction as body. Full body head to feet.",
+    "apose_30_v02": "A-pose with a gentle 30 degree rightward turn. Most of her front is visible but her right shoulder leads slightly. Arms angled down at 45 degrees from torso forming an A shape. Feet shoulder-width apart. Her face follows her body angle. Full body.",
+    "apose_30_v03": "Change to A-pose, body rotated 30 degrees right like a subtle 3/4 view. The peace sign on her shirt is slightly angled but fully readable. Arms down and out at 45 degrees. Her right side is just a bit more prominent. Eyes looking slightly right. Full body head to feet.",
+    "apose_30_v04": "A-pose from a gentle right angle. The camera is 30 degrees to the right of center. Her body is mostly frontal with a slight rightward bias. Both arms at 45 degrees from body making an A shape. We can see a hint of her right side. Face follows body. Full body.",
+    "apose_30_v05": "Standing in an A-pose, turned 30 degrees right. Like a subtle character select pose — not quite facing the camera, slightly angled. Arms symmetrically at 45 degrees from body. The right hip is slightly closer to camera. Gaze follows body direction. Full body head to feet.",
+    "apose_30_v06": "A-pose, slight 3/4 right view at 30 degrees. She is almost facing the camera but her chest is angled just enough that her right shoulder is closer. Arms hang down at 45 degrees from body, palms relaxed. Her face points the same way as her torso — slightly right. Full body.",
+    "apose_30_v07": "Change to A-pose facing 30 degrees to the right. Think of a subtle fashion pose angle — mostly frontal with just a touch of dimension. Arms at 45 degrees from torso. The logo on her shirt is slightly perspective-shifted. Her right ear is more visible than her left. Full body head to feet.",
+    "apose_30_v08": "A-pose, body aimed about 30 degrees right of the camera. A gentle angle — we still see both eyes clearly but her right cheekbone is more prominent. Both arms at 45 degrees from body. Feet apart. Her right arm is fractionally closer to camera. Full body.",
+    "apose_30_v09": "Standing A-pose with 30 degree right rotation. Like the first click on a character turntable — just past front-facing. Arms at 45 degree angle from body. Her torso is slightly diagonal. The braid falls naturally. Full body head to feet.",
+    "apose_30_v10": "A-pose at a mild 30 degree right angle. Her body is between frontal and 3/4 — closer to frontal. Arms extend down and outward at 45 degrees. We see the front of her shirt clearly, slightly angled. Her face is turned gently right. Full body.",
+    "apose_30_v11": "Change to A-pose. Rotate the view 30 degrees right around her — a small rotation from the front. Her body is just barely angled. Arms at 45 degrees from torso making an A. The peace sign is still mostly front-facing. She looks in her body's direction. Full body head to feet.",
+    "apose_30_v12": "A-pose, 30 degrees right. Not quite a 3/4 view, more of a gentle angle that adds dimension to the front view. Arms down at 45 degrees from body. Her right shoulder is slightly nearer to camera. Both braids visible. Face aimed slightly right. Full body.",
+
+    # ── A-pose 45° experiments (12 variations) ────────────────────────
+    "apose_45_v01": "Change the pose to a standard A-pose at a 3/4 angle. Her body is turned 45 degrees to the right. Arms held away from body at 45 degree angle, hands open. Face looking in same direction as body. Full body head to feet.",
+    "apose_45_v02": "Keep the A-pose with arms angled down at 45 degrees from the torso. Rotate the entire character 45 degrees clockwise so we see her right side more than her left. The peace sign on her shirt should be visibly angled. Her right shoulder is closer to the camera. Full body.",
+    "apose_45_v03": "Change to an A-pose viewed from a classic 3/4 right angle — like a character select screen in a video game. Both arms hang down and out at 45 degrees from the body. Feet apart. Body rotated so we see the front and right side equally. Eyes and face follow body direction. Full body head to feet.",
+    "apose_45_v04": "Imagine the character is standing on a turntable that has been rotated 45 degrees to the right. She is in a standard A-pose: standing straight, feet apart, both arms angled down and away from her body at 45 degrees. We see her from the front-right. Her face points the same way as her chest. Full body.",
+    "apose_45_v05": "A-pose, 3/4 view from the right. The character stands with arms making a letter A — arms straight, angled 45 degrees down from horizontal. Her torso is turned so the right side faces the camera more. The front of her shirt is partially visible. Profile of her nose visible. Full body head to feet.",
+    "apose_45_v06": "Change the pose to standing in an A-pose. Move the camera 45 degrees to the right of center. Her right arm appears shorter due to perspective, her left arm extends toward the left of frame. Both arms at 45 degrees from torso. Her face is turned away from camera, showing the right side of her face. Full body.",
+    "apose_45_v07": "A-pose from a 45 degree right angle. Like a fashion illustration turnaround at the 3/4 mark. Arms down and out at 45 degrees, palms facing her thighs. Body clearly rotated — we see her right hip and right shoulder prominently. Gaze follows body. Full body head to feet.",
+    "apose_45_v08": "Change to A-pose. The viewpoint is halfway between the front view and the right side view. Her body is diagonal to the camera. Arms extend down and outward at 45 degrees. Her right arm is foreshortened, her left arm extends out. Face aligned with body. Full body.",
+    "apose_45_v09": "A-pose, shot as if the character is on a lazy susan rotated 45 degrees right. Her chest faces the upper-left corner of the frame. Arms at 45 degrees from body, relaxed. We see the right side of her jeans and the side seam. Her braid falls over her right shoulder toward camera. Full body head to feet.",
+    "apose_45_v10": "Standing A-pose with arms at 45 degrees from body. The camera orbits 45 degrees to the right. We see her front-right. The peace sign on her shirt is at a 45 degree angle to the camera. Her right ear is visible, her left ear is hidden. Full body.",
+    "apose_45_v11": "A-pose 3/4 right. She stands with feet shoulder width apart, arms angled down at 45 degrees making an A shape. Her body faces the top-left corner of the image. We see the right side of her face, her right arm closer to us. The back pocket of her jeans is just barely visible. Full body head to feet.",
+    "apose_45_v12": "Change to an A-pose. Rotate the view 45 degrees around her to the right. Like a character model sheet 3/4 view. Arms symmetrically at 45 degrees from torso, hanging down and out. Her body is clearly angled — not frontal, not profile. We see roughly equal amounts of her front and right side. Full body.",
+
+    # ── A-pose 75° experiments (12 variations) ────────────────────────
+    "apose_75_v01": "Change the pose to a standard A-pose. Her body is turned 75 degrees to the right — nearly a side view but her chest is still partially visible. Arms at 45 degrees from body. Face looking right in profile. Full body head to feet.",
+    "apose_75_v02": "A-pose from a steep right angle, about 75 degrees. We see mostly her right side with just a sliver of her front visible. The peace sign on her shirt is barely readable at this angle. Arms at 45 degrees from torso. Her right arm is significantly foreshortened toward camera. Face nearly in profile. Full body.",
+    "apose_75_v03": "Change to A-pose, body rotated 75 degrees right. Between a 3/4 view and a full side view. Her right hip and right shoulder dominate the frame. Her left arm extends behind her at 45 degrees. We see her right ear clearly. The front of her body is mostly hidden. Full body head to feet.",
+    "apose_75_v04": "A-pose at 75 degrees right. Like a character turnaround 3 clicks past the 3/4 mark. Her body is almost perpendicular to camera but angled just enough to show a strip of her front. Arms held at 45 degrees from body — the right arm reaches toward us, the left extends away. Her face is in near-profile. Full body.",
+    "apose_75_v05": "Standing A-pose, viewed from 75 degrees to her right. We see the right side of her body prominently — right shoulder, right hip, right leg in front. Her left side is mostly hidden behind her body. Arms at 45 degrees from torso. Her braid hangs behind her right shoulder. Face shows right profile with a hint of her right eye. Full body head to feet.",
+    "apose_75_v06": "A-pose from a steep 75 degree right angle. Her body is close to a side view. The right arm at 45 degrees reaches toward the viewer and is foreshortened. The left arm at 45 degrees extends behind her away from camera. We see the side seam of her jeans. Her face is almost in profile. Full body.",
+    "apose_75_v07": "Change to A-pose. The camera is positioned 75 degrees to her right — nearly beside her but still seeing a small portion of her front. Both arms at 45 degrees from body. Her right arm appears shorter due to perspective. The back pocket of her jeans is becoming visible. Full body head to feet.",
+    "apose_75_v08": "A-pose at a steep 75 degree right angle. Her body is between 3/4 and full profile. We see her right side and just barely see the edge of her chest. Arms symmetrically at 45 degrees from body — one reaching toward camera, one away. Her right eye is visible but her left eye is hidden by her nose. Full body.",
+    "apose_75_v09": "Standing in an A-pose, viewed from 75 degrees right. Nearly a side view. Her torso is almost perpendicular to camera. The right arm extends toward us at 45 degrees down. The left arm goes behind her at 45 degrees. We see the depth of her body — front to back. Profile view of her face. Full body head to feet.",
+    "apose_75_v10": "A-pose, 75 degrees right. Deep angle, almost a profile but not quite. Her body shows mostly the right flank. Arms at 45 degrees from body, creating a subtle V shape when seen from this angle. Her right arm foreshortened, her left arm visible behind her body. The peace sign is at an extreme angle. Full body.",
+    "apose_75_v11": "Change to A-pose rotated 75 degrees right. Like the last frame before a full side view on a turntable. Her right side fills most of the frame. A thin strip of the front of her t-shirt peeks past her right arm. Arms at 45 degrees from body. Her face is in near-profile, nose pointing right. Full body head to feet.",
+    "apose_75_v12": "A-pose at 75 degrees. Steep angle — we see her right flank, right arm reaching toward camera at 45 degrees down, left arm behind her at 45 degrees. Her body has real depth from this angle. The side of her jeans is prominent. Her face is nearly in profile with just one eye visible. Full body.",
+
+    # ── A-pose 90° experiments (12 variations) ────────────────────────
+    "apose_90_v01": "Change the pose to a standard A-pose seen from a perfect right side profile. Arms extend down and outward at 45 degrees — the right arm points toward camera, the left arm points away behind her. We see the right side of her face only. Full body head to feet.",
+    "apose_90_v02": "A-pose, perfect side view from the right. Like a medical posture diagram from the side. Both arms held away from body at 45 degrees. The near arm (right) reaches toward the viewer, the far arm (left) reaches away. Her body is a perfect silhouette from the right side. Full body.",
+    "apose_90_v03": "She stands in an A-pose but we view her from directly to her right — a 90 degree side view. Her right arm extends toward us at a 45 degree downward angle. Her left arm extends away behind her at the same angle. We see her right ear, right braid, right side of her jeans. Her face is in full right profile, looking to the right. Full body head to feet.",
+    "apose_90_v04": "Change to A-pose, side profile view. Imagine you are standing directly to her right side. Her arms form a V shape when viewed from this angle — right arm reaching toward you at 45 degrees down, left arm reaching away at 45 degrees down. We see her body as a side silhouette. Only the right side of her face is visible. Full body.",
+    "apose_90_v05": "A-pose from 90 degrees right. Like a side-view character reference sheet. She faces to the right of the frame. Arms angle down and away from body at 45 degrees, forming a wide V when seen from the side. We see the side profile of her face, the side of her t-shirt, the side seam of her jeans. No front view at all. Full body head to feet.",
+    "apose_90_v06": "Perfect right profile A-pose. Her nose points to the right edge of the frame. Both arms are at 45 degrees from her body — from this side view they overlap slightly, the right arm in front reaching toward camera, the left arm behind reaching away. Her braid hangs down her back. We see the right side of everything. Full body.",
+    "apose_90_v07": "Side view A-pose. The camera is placed at exactly 90 degrees to her right. She looks like a paper doll viewed from the side. Arms at 45 degrees from torso. The arm closest to us (right) is foreshortened as it reaches toward the lens. Her body width appears narrow because we see her from the side. Full body head to feet.",
+    "apose_90_v08": "A-pose seen from her right side. Like standing next to her and looking at her profile. Arms at 45 degrees from body. Her face shows a clean right profile — we see her right eye, nose in profile, chin. Her chest faces to the right. The peace sign is barely visible from this angle. Full body.",
+    "apose_90_v09": "Change to A-pose, then rotate the camera 90 degrees to the right so we see her from directly beside her. Her body faces perpendicular to the camera. Arms at 45 degrees from torso. Right arm reaches toward camera, left arm extends behind her. She is in full right profile. Full body head to feet.",
+    "apose_90_v10": "Standing A-pose, exact right side view. As if she is facing a wall to the right and we photograph her from the side. Arms at 45 degrees forming a V shape from this perspective. Her right arm is closer to camera. We see the thickness of her body, the side of her face, her ear. Full body.",
+    "apose_90_v11": "A-pose at 90 degrees. She faces stage right. We see her as a side elevation — like an architectural side view of a person. Arms at 45 degrees down from body. The right arm reaches toward the viewer. Her hair falls behind her shoulder. Her face is a clean profile showing forehead, nose, lips, chin. Full body head to feet.",
+    "apose_90_v12": "Perfect side view A-pose from the right. Think character turnaround sheet, side panel. Her body is perpendicular to the image plane. Arms angled 45 degrees from body. From this viewpoint we see the depth of her body rather than the width. Right profile of face. Right side of clothing. Full body.",
+    "apose_90_v13": "Perfect side view A-pose from the right. Think character turnaround sheet, side panel. Her body is perpendicular to the image plane. Arms angled 45 degrees from body. From this viewpoint we see the depth of her body rather than the width. Right profile of face. Right side of clothing. Her feet are pointing to the right side of the frame, the same direction her face and body are pointing — we see the sides of her shoes, not the tops. Her toes point to the right edge of the image. Full body.",
+
+    # ── A-pose 45° → +30° (to ~75°) variants ──────────────────────
+    "apose_45p30_v01": "Rotate the character 30 degrees further to the right. Keep the same A-pose with arms at 45 degrees from the torso, arms in line with the torso. Keep the hands in the same orientation. Her face is aligned with her body direction, not turned toward camera. Full body head to feet.",
+    "apose_45p30_v02": "Turn the body 30 degrees more to the right from its current angle. The arms stay at 45 degrees from the body, in line with the torso. Hands keep their same orientation — do not rotate the wrists. Her face follows her body, looking past the right edge of frame. Full body.",
+    "apose_45p30_v03": "Rotate her body 30 degrees clockwise from this view. She was at 3/4 right, now she is at a steeper angle showing more of her right side. Arms remain at 45 degrees from torso, in line with the body. Hands unchanged. Face aligned with body direction. Full body head to feet.",
+    "apose_45p30_v04": "Add 30 degrees of rightward rotation. Her right side becomes more prominent, her left side more hidden. Keep the arms at exactly 45 degrees from the torso, arms staying in line with her body. Hands stay in the same position relative to the arms. Her face points the same direction as her chest. Full body.",
+    "apose_45p30_v05": "Turn the character another 30 degrees to the right. We now see mostly her right side with just a portion of her front. Arms at 45 degrees from body, in line with the torso — the right arm foreshortens toward camera, the left arm extends behind. Hands keep same orientation. Face aligned with body. Full body head to feet.",
+    "apose_45p30_v06": "Rotate 30 degrees further right. From this steeper angle we see her right flank prominently. Her arms maintain 45 degrees from the torso, in line with her body. Do not change hand position or wrist rotation. Her face is turned with her body, nearly in profile. Full body.",
+    "apose_45p30_v07": "Swing the camera 30 degrees further around to her right. Keep the A-pose identical — arms at 45 degrees from body, in line with torso. The peace sign on her shirt is now at a steep angle. Hands remain in same orientation. Her head faces the same direction as her body. Full body head to feet.",
+    "apose_45p30_v08": "Rotate her 30 degrees more to the right from current position. Now almost a side view. Arms stay at 45 degrees from torso and in line with her body. The right arm reaches toward camera, left arm extends away. Keep hands in their current orientation. Face follows body direction. Full body.",
+    "apose_45p30_v09": "Turn 30 degrees clockwise. Her body is now roughly 75 degrees from the camera. Maintain the A-pose with arms at 45 degrees from body, arms in line with the torso. Hands keep same orientation, no wrist rotation change. Her face aligns with her body, looking to the right. Full body head to feet.",
+    "apose_45p30_v10": "Add 30 degrees rightward rotation to the current pose. We see significantly more of her right side now. Arms unchanged at 45 degrees from torso, staying in line with body. Same hand orientation. Her face is nearly in profile, aligned with her body. Full body.",
+    "apose_45p30_v11": "Rotate the viewing angle 30 degrees further right around the character. From this steep angle, the right arm is foreshortened and the left arm extends behind her. Arms at 45 degrees from body, in line with torso. Hands in same orientation. Face aligned with body direction. Full body head to feet.",
+    "apose_45p30_v12": "Turn her body 30 degrees more to the right. She is now between 3/4 and profile view. The A-pose arms remain at 45 degrees from the torso, in line with her body. No change to hand orientation. Her head and face follow her body angle, looking right. Full body.",
+
+    # ── A-pose 45° → -30° (to ~15°) variants ──────────────────────
+    "apose_45m30_v01": "Rotate the character 30 degrees back toward the camera. Keep the same A-pose with arms at 45 degrees from the torso, arms in line with the torso. Keep the hands in the same orientation. Her face is aligned with her body direction. Full body head to feet.",
+    "apose_45m30_v02": "Turn the body 30 degrees to the left from its current angle, bringing her more toward frontal. The arms stay at 45 degrees from the body, in line with the torso. Hands keep their same orientation. Her face follows her body direction. Full body.",
+    "apose_45m30_v03": "Rotate her body 30 degrees counter-clockwise from this view. She was at 3/4 right, now she is nearly frontal with a slight rightward angle. Arms remain at 45 degrees from torso, in line with the body. Hands unchanged. Face aligned with body direction. Full body head to feet.",
+    "apose_45m30_v04": "Subtract 30 degrees of rotation, bringing her closer to facing the camera. Her front becomes more visible. Keep the arms at exactly 45 degrees from the torso, arms staying in line with her body. Hands stay in the same position relative to the arms. Her face points the same direction as her chest. Full body.",
+    "apose_45m30_v05": "Turn the character 30 degrees back toward the camera. We now see mostly her front with just a slight angle. Arms at 45 degrees from body, in line with the torso. Hands keep same orientation. Face aligned with body. Full body head to feet.",
+    "apose_45m30_v06": "Rotate 30 degrees toward frontal. From this gentler angle we see most of her front and just a hint of her right side. Her arms maintain 45 degrees from the torso, in line with her body. Do not change hand position or wrist rotation. Her face is turned with her body, mostly toward camera. Full body.",
+    "apose_45m30_v07": "Swing the camera 30 degrees back toward front. Keep the A-pose identical — arms at 45 degrees from body, in line with torso. The peace sign on her shirt is now nearly front-facing. Hands remain in same orientation. Her head faces the same direction as her body. Full body head to feet.",
+    "apose_45m30_v08": "Rotate her 30 degrees toward the camera from current position. Now a subtle angle, mostly frontal. Arms stay at 45 degrees from torso and in line with her body. Keep hands in their current orientation. Face follows body direction. Full body.",
+    "apose_45m30_v09": "Turn 30 degrees counter-clockwise. Her body is now roughly 15 degrees from the camera — nearly straight on. Maintain the A-pose with arms at 45 degrees from body, arms in line with the torso. Hands keep same orientation. Her face aligns with her body. Full body head to feet.",
+    "apose_45m30_v10": "Remove 30 degrees of rotation from the current pose. She faces almost directly at camera now. Arms unchanged at 45 degrees from torso, staying in line with body. Same hand orientation. Her face is nearly frontal, aligned with her body. Full body.",
+    "apose_45m30_v11": "Rotate the viewing angle 30 degrees back toward front around the character. From this gentle angle, both arms are clearly visible at 45 degrees from body, in line with torso. Hands in same orientation. Face aligned with body direction. Full body head to feet.",
+    "apose_45m30_v12": "Turn her body 30 degrees back toward the camera. She is now just slightly angled from frontal. The A-pose arms remain at 45 degrees from the torso, in line with her body. No change to hand orientation. Her head and face follow her body angle. Full body.",
 }
 
 ANGLES_PROMPT = {}
@@ -239,34 +335,87 @@ ANYPOSE_DEFAULT_PROMPT = (
 # WORKFLOW BUILDERS
 # ═══════════════════════════════════════════════════════════════════════════
 
+def inject_dwpose_nodes(workflow, image_node_output, pose_prefix):
+    """Inject DWPose extraction nodes into an existing workflow.
+
+    Adds a DWPreprocessor that reads from image_node_output (e.g. ["4:102", 0]),
+    plus SaveImage and SavePoseKpsAsJsonFile nodes for the skeleton and JSON.
+    Uses node IDs "dwpose:1", "dwpose:save_img", "dwpose:save_json" to avoid collisions.
+    """
+    workflow["dwpose:1"] = {
+        "class_type": "DWPreprocessor",
+        "inputs": {
+            "detect_hand": "enable",
+            "detect_body": "enable",
+            "detect_face": "enable",
+            "resolution": 1024,
+            "bbox_detector": "yolox_l.onnx",
+            "pose_estimator": "dw-ll_ucoco_384_bs5.torchscript.pt",
+            "scale_stick_for_xinsr_cn": "disable",
+            "image": image_node_output,
+        },
+    }
+    workflow["dwpose:save_img"] = {
+        "class_type": "SaveImage",
+        "inputs": {
+            "filename_prefix": f"{pose_prefix}_skeleton",
+            "images": ["dwpose:1", 0],
+        },
+    }
+    # No need for SavePoseKpsAsJsonFile — DWPreprocessor already outputs
+    # JSON via its "ui" key as "openpose_json". We capture it from the
+    # websocket "executed" message for the dwpose:1 node.
+    return workflow
+
+
+# Map pipeline -> the node output that produces the final rendered image
+PIPELINE_IMAGE_OUTPUT = {
+    "2511":           ["4:102", 0],
+    "2509":           ["162:19", 0],
+    "anypose":        ["4:102", 0],
+    "expressions":    ["4:102", 0],
+    "lighting":       ["4:102", 0],
+    "outfits":        ["4:102", 0],
+    "poses_prompt":   ["4:102", 0],
+    "angles_prompt":  ["4:102", 0],
+}
+
+
 def build_workflow(
     image_filename, azimuth, elevation, distance, prompt,
     seed=42, steps=4, guidance_scale=1.0,
     lora_strength_lightning=1.0, lora_strength_angles=1.0,
     filename_prefix="multi_angle", pipeline="2511",
-    pose_image_filename=None,
+    pose_image_filename=None, get_pose=False,
 ):
     """Dispatch to the appropriate pipeline workflow builder."""
     if pipeline == "2509":
-        return build_workflow_2509(
+        wf = build_workflow_2509(
             image_filename, prompt, seed, steps, guidance_scale,
             lora_strength_lightning, lora_strength_angles, filename_prefix,
         )
-    if pipeline == "anypose":
-        return build_workflow_anypose(
+    elif pipeline == "anypose":
+        wf = build_workflow_anypose(
             image_filename, pose_image_filename, prompt, seed, steps,
             guidance_scale, lora_strength_lightning, filename_prefix,
         )
-    if pipeline in ("expressions", "lighting", "outfits", "poses_prompt", "angles_prompt"):
-        return build_workflow_expressions(
+    elif pipeline in ("expressions", "lighting", "outfits", "poses_prompt", "angles_prompt"):
+        wf = build_workflow_expressions(
             image_filename, prompt, seed, steps, guidance_scale,
             lora_strength_lightning, filename_prefix,
         )
-    return build_workflow_2511(
-        image_filename, azimuth, elevation, distance,
-        seed, steps, guidance_scale,
-        lora_strength_lightning, lora_strength_angles, filename_prefix,
-    )
+    else:
+        wf = build_workflow_2511(
+            image_filename, azimuth, elevation, distance,
+            seed, steps, guidance_scale,
+            lora_strength_lightning, lora_strength_angles, filename_prefix,
+        )
+
+    if get_pose:
+        image_output = PIPELINE_IMAGE_OUTPUT.get(pipeline, ["4:102", 0])
+        inject_dwpose_nodes(wf, image_output, filename_prefix)
+
+    return wf
 
 
 def build_workflow_2511(
@@ -299,7 +448,9 @@ def build_workflow_2511(
             "inputs": {
                 "horizontal_angle": azimuth,
                 "vertical_angle": elevation,
-                "zoom": distance,
+                # QwenMultiangleCameraNode zoom scale: <2="wide", <6="medium", >=6="close-up"
+                # Our distance values: 0.6=close-up, 1.0=medium, 1.8=wide
+                "zoom": {0.6: 8.0, 1.0: 4.0, 1.8: 1.0}.get(distance, 4.0),
                 "default_prompts": False,
                 "camera_view": False,
                 "image": ["1", 0],
@@ -953,10 +1104,13 @@ def run_local(jobs, args):
         print(f"  [{i:3d}/{total}] {prompt}")
         print(f"           → {fname}", end="", flush=True)
         try:
+            cloud_prefix = os.path.splitext(fname)[0]
             wf = build_workflow(server_filename, az, el, dist, prompt,
                                 args.seed, args.steps,
                                 args.guidance, args.lora_lightning, args.lora_angles,
-                                pipeline=args.pipeline)
+                                filename_prefix=cloud_prefix,
+                                pipeline=args.pipeline,
+                                get_pose=getattr(args, 'get_pose', False))
             pid = local_queue(args.server, wf, client_id)
             result = local_wait(args.server, pid, args.timeout)
             outputs = result.get("outputs", {})
@@ -966,6 +1120,27 @@ def run_local(jobs, args):
                 local_download(args.server, images[0]["filename"],
                                images[0].get("subfolder", ""), out)
                 print("  ✓"); ok += 1
+                # Download pose outputs if --get-pose
+                if getattr(args, 'get_pose', False):
+                    pose_dir = os.path.join(args.output, "poses")
+                    os.makedirs(pose_dir, exist_ok=True)
+                    pose_base = os.path.splitext(fname)[0]
+                    # Skeleton image
+                    skel_imgs = outputs.get("dwpose:save_img", {}).get("images", [])
+                    if skel_imgs:
+                        local_download(args.server, skel_imgs[0]["filename"],
+                                       skel_imgs[0].get("subfolder", ""),
+                                       os.path.join(pose_dir, f"{pose_base}_skeleton.png"))
+                        print(f"           🦴 skeleton ✓")
+                    # Pose JSON from DWPreprocessor ui output
+                    dw_output = outputs.get("dwpose:1", {})
+                    openpose_json = dw_output.get("openpose_json", [])
+                    if openpose_json:
+                        json_out = os.path.join(pose_dir, f"{pose_base}_pose.json")
+                        json_str = openpose_json[0] if isinstance(openpose_json[0], str) else json.dumps(openpose_json[0])
+                        with open(json_out, "w") as jf:
+                            jf.write(json_str)
+                        print(f"           🦴 pose JSON ✓")
             else:
                 print("  ✗ no output"); fail += 1
         except Exception as e:
@@ -1152,8 +1327,22 @@ async def _process_batch_ws(jobs, args, api_key, session):
         print()
 
     pid_to_job = {}  # prompt_id -> (idx, fname, out_path, prompt)
+    pid_got_render = set()   # prompt_ids that have received the render image
+    pid_got_skeleton = set() # prompt_ids that have received the skeleton image
+    pid_got_json = set()     # prompt_ids that have received the pose JSON
     pending = set()
     ws_url = f"wss://cloud.comfy.org/ws?token={api_key}"
+
+    def _check_job_complete(pid):
+        """Mark a job as done once all expected outputs have been received."""
+        if pid not in pending:
+            return
+        if pid not in pid_got_render:
+            return
+        if getattr(args, 'get_pose', False):
+            if pid not in pid_got_skeleton or pid not in pid_got_json:
+                return
+        pending.discard(pid)
 
     # Connect websocket FIRST, then submit jobs so we don't miss early completions
     print("  Connecting websocket...")
@@ -1182,11 +1371,15 @@ async def _process_batch_ws(jobs, args, api_key, session):
                     if not pose_cloud_name:
                         print(f"  [{idx:3d}/{total}] ✗ {fname}  (pose image not uploaded)")
                         return None
+                # Use descriptive filename (without .png) as the cloud prefix
+                cloud_prefix = os.path.splitext(fname)[0]
                 wf = build_workflow(img_name, az, el, dist, prompt,
                                     args.seed, args.steps,
                                     args.guidance, args.lora_lightning, args.lora_angles,
+                                    filename_prefix=cloud_prefix,
                                     pipeline=args.pipeline,
-                                    pose_image_filename=pose_cloud_name)
+                                    pose_image_filename=pose_cloud_name,
+                                    get_pose=getattr(args, 'get_pose', False))
                 pid = await cloud_submit(session, api_key, wf)
                 pid_to_job[pid] = (idx, fname, out, prompt)
                 pending.add(pid)
@@ -1230,31 +1423,75 @@ async def _process_batch_ws(jobs, args, api_key, session):
                 msg_data = data.get("data", {})
                 pid = msg_data.get("prompt_id", "")
 
-                if pid not in pending:
-                    continue
+                # ── Handle job outputs ──
+                if pid in pending:
+                    if msg_type == "executed":
+                        node_id = str(msg_data.get("node", ""))
+                        node_output = msg_data.get("output", {})
+                        images = node_output.get("images", [])
 
-                if msg_type == "executed":
-                    images = msg_data.get("output", {}).get("images", [])
-                    if images:
                         idx, fname, out, prompt = pid_to_job[pid]
-                        try:
-                            await cloud_download(session, api_key,
-                                                 images[0]["filename"], out)
-                            cleanup_checkerboard(out, args.image)
-                            print(f"  [{idx:3d}/{total}] ✓ {fname}")
-                            print(f"           prompt: {prompt}")
-                            ok += 1
-                        except Exception as e:
-                            print(f"  [{idx:3d}/{total}] ✗ {fname}  (download: {e})")
-                            fail += 1
-                        pending.discard(pid)
 
-                elif msg_type == "execution_error":
-                    idx, fname, out, prompt = pid_to_job[pid]
-                    err = msg_data.get("exception_message", "unknown error")
-                    print(f"  [{idx:3d}/{total}] ✗ {fname}  ({err})")
-                    fail += 1
-                    pending.discard(pid)
+                        # Main render image (from SaveImage node "2" or "31")
+                        save_node = "31" if args.pipeline == "2509" else "2"
+                        if node_id == save_node and images:
+                            try:
+                                await cloud_download(session, api_key,
+                                                     images[0]["filename"], out)
+                                cleanup_checkerboard(out, args.image)
+                                print(f"  [{idx:3d}/{total}] ✓ {fname}")
+                                print(f"           prompt: {prompt}")
+                                ok += 1
+                                pid_got_render.add(pid)
+                            except Exception as e:
+                                print(f"  [{idx:3d}/{total}] ✗ {fname}  (download: {e})")
+                                fail += 1
+                                pending.discard(pid)
+                            _check_job_complete(pid)
+
+                        # Pose skeleton image (from dwpose:save_img)
+                        elif node_id == "dwpose:save_img" and images:
+                            pose_dir = os.path.join(args.output, "poses")
+                            os.makedirs(pose_dir, exist_ok=True)
+                            pose_base = os.path.splitext(fname)[0]
+                            skel_out = os.path.join(pose_dir, f"{pose_base}_skeleton.png")
+                            try:
+                                await cloud_download(session, api_key,
+                                                     images[0]["filename"], skel_out)
+                                print(f"  [{idx:3d}/{total}] 🦴 ✓ skeleton")
+                            except Exception as e:
+                                print(f"  [{idx:3d}/{total}] 🦴 ✗ skeleton: {e}")
+                            pid_got_skeleton.add(pid)
+                            _check_job_complete(pid)
+
+                        # Pose JSON data (from dwpose:1 DWPreprocessor ui output)
+                        elif node_id == "dwpose:1":
+                            openpose_json = node_output.get("openpose_json", [])
+                            if openpose_json:
+                                pose_dir = os.path.join(args.output, "poses")
+                                os.makedirs(pose_dir, exist_ok=True)
+                                pose_base = os.path.splitext(fname)[0]
+                                json_out = os.path.join(pose_dir, f"{pose_base}_pose.json")
+                                try:
+                                    json_str = openpose_json[0] if isinstance(openpose_json[0], str) else json.dumps(openpose_json[0])
+                                    with open(json_out, "w") as jf:
+                                        jf.write(json_str)
+                                    print(f"  [{idx:3d}/{total}] 🦴 ✓ pose JSON")
+                                except Exception as e:
+                                    print(f"  [{idx:3d}/{total}] 🦴 ✗ pose JSON: {e}")
+                            pid_got_json.add(pid)
+                            _check_job_complete(pid)
+
+                    elif msg_type == "execution_complete":
+                        if pid in pending:
+                            pending.discard(pid)
+
+                    elif msg_type == "execution_error":
+                        idx, fname, out, prompt = pid_to_job[pid]
+                        err = msg_data.get("exception_message", "unknown error")
+                        print(f"  [{idx:3d}/{total}] ✗ {fname}  ({err})")
+                        fail += 1
+                        pending.discard(pid)
 
             elif msg.type in (aiohttp.WSMsgType.CLOSED, aiohttp.WSMsgType.ERROR):
                 print("  WebSocket closed unexpectedly")
@@ -1271,7 +1508,6 @@ async def _process_batch_ws(jobs, args, api_key, session):
         idx, fname, out, prompt = pid_to_job[pid]
         print(f"  [{idx:3d}/{total}] ✗ {fname}  (timeout)")
         fail += 1
-
     return ok + skipped, fail
 
 
@@ -1324,6 +1560,8 @@ def main():
                    help="Directory of pose images (required for --pipeline anypose)")
     p.add_argument("--prompt-append", default="",
                    help="String to append to every generated prompt")
+    p.add_argument("--get-pose", action="store_true",
+                   help="Run DWPose extraction on each rendered image (saves skeleton + JSON to poses/ subdir)")
     p.add_argument("--dry-run", action="store_true")
     args = p.parse_args()
     if args.output is None:

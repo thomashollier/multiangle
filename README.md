@@ -8,8 +8,6 @@ When training LoRAs or building character assets, you often need systematic mult
 
 ![Original character reference](examples/chararcter_ref.png)
 
-![Context views](examples/context_1x4.jpg)
-
 ## Supported Pipelines
 
 | Pipeline | LoRAs | Variations | Method |
@@ -29,6 +27,24 @@ When training LoRAs or building character assets, you often need systematic mult
 - **Distances** (3): 0.6 (close-up), 1.0 (medium), 1.8 (wide)
 
 ![Multi-angle example output](examples/angles_4x4.jpg)
+
+### Skeleton Extraction (`--get-pose`)
+
+When `--get-pose` is enabled, each rendered image is automatically run through DWPose extraction inline — no separate pass needed. Outputs include the skeleton visualization and a JSON file with all keypoints (body, face, hands).
+
+![Skeleton extraction example](examples/skeletons_4x4.jpg)
+
+Skeleton and JSON files are saved to a `poses/` subdirectory:
+
+```
+output_dir/
+  az000_el+00_d1.0_front_view_eyelevel_shot_medium_shot.png
+  poses/
+    az000_el+00_d1.0_front_view_eyelevel_shot_medium_shot_skeleton.png
+    az000_el+00_d1.0_front_view_eyelevel_shot_medium_shot_pose.json
+```
+
+The JSON contains OpenPose-format keypoints (18 body, 68 face, 21 per hand) which can be used for 3D triangulation, pose-driven generation, or ControlNet conditioning.
 
 ### Prompt Poses
 
@@ -124,6 +140,9 @@ python batch_multi_angle.py --image photo.png --cloud --seed 123
 # Append text to every prompt
 python batch_multi_angle.py --image photo.png --cloud --prompt-append "dramatic lighting"
 
+# Multi-angle with skeleton extraction
+python batch_multi_angle.py --image photo.png --cloud --get-pose
+
 # Render a subset of angles
 python batch_multi_angle.py --image photo.png --cloud --azimuths 0,90,180,270 --elevations 0
 
@@ -151,6 +170,7 @@ python batch_multi_angle.py --image photo.png --cloud --dry-run
 | `--distances` | all | Subset, e.g. `0.6,1.0` |
 | `--prompt-append` | `""` | Text appended to every prompt |
 | `--timeout` | `600` | Per-job timeout in seconds |
+| `--get-pose` | off | Run DWPose extraction on each render (saves skeleton + JSON to `poses/` subdir) |
 | `--dry-run` | off | Print prompts without rendering |
 
 ## Output
