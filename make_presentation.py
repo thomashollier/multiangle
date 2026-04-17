@@ -388,36 +388,6 @@ def generate_presentation(ref_image, char_name, char_desc, output_dir, output_fi
 
     prs.save(output_file)
     print(f"Saved presentation: {output_file}")
-
-    # Export PDF via macOS sips/qlmanage or LibreOffice if available
-    pdf_file = output_file.replace(".pptx", ".pdf")
-    try:
-        import subprocess
-        # Try LibreOffice first
-        result = subprocess.run(
-            ["soffice", "--headless", "--convert-to", "pdf", "--outdir",
-             os.path.dirname(output_file) or ".", output_file],
-            capture_output=True, timeout=30)
-        if result.returncode == 0:
-            print(f"Saved PDF: {pdf_file}")
-        else:
-            # Try macOS AppleScript via Keynote
-            script = f'''
-            tell application "Keynote"
-                open POSIX file "{os.path.abspath(output_file)}"
-                delay 2
-                export front document to POSIX file "{os.path.abspath(pdf_file)}" as PDF
-                close front document
-            end tell
-            '''
-            result = subprocess.run(["osascript", "-e", script], capture_output=True, timeout=30)
-            if result.returncode == 0:
-                print(f"Saved PDF: {pdf_file}")
-            else:
-                print(f"PDF export: install LibreOffice or open {output_file} in Keynote/PowerPoint to export manually")
-    except Exception as e:
-        print(f"PDF export skipped: {e}")
-
     return output_file
 
 
