@@ -19,8 +19,7 @@ When training LoRAs or building character assets, you often need systematic mult
 | **lighting** | Qwen-Image-Edit-2511 + Lightning | 4 variations | Prompt-driven lighting changes |
 | **outfits** | Qwen-Image-Edit-2511 + Lightning | 4 variations | Prompt-driven outfit changes |
 | **anypose** | [lilylilith/AnyPose](https://huggingface.co/lilylilith/AnyPose) | Per pose image | Pose transfer from reference images |
-
-**Pose Detection** (`--get-pose`): Any pipeline above can be combined with `--get-pose` to run inline DWPose skeleton extraction on each render, producing skeleton images and OpenPose-format JSON keypoints (body, face, hands).
+| **`--get-pose`** | [DWPose](https://github.com/Fannovel16/comfyui_controlnet_aux) | Per render | Inline skeleton extraction (body, face, hands) — combines with any pipeline above |
 
 ### Multi-Angle Grid (2511 / 2509)
 
