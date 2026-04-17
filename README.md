@@ -1,8 +1,12 @@
 # Character Sheet Generator
 
-Batch-render camera angle variations, pose transfers, and facial expression sheets from a single image using Qwen Image Edit models on [Comfy Cloud](https://cloud.comfy.org).
+A character sheet is the foundational document in any visual production pipeline. In animation, games, comics, and AI-driven content, it defines how a character looks from every angle, in every pose, and with every expression — the single source of truth that keeps a character consistent across hundreds of shots, scenes, or generated images.
 
-When training LoRAs or building character assets, you often need systematic multi-angle renders, posed variations, and expression sheets of a subject. Manually running ComfyUI workflows for every combination is tedious. This script automates the entire process — submit one image, get back a complete character sheet.
+Traditionally, character sheets are created by hand. A concept artist draws the front, side, back, and 3/4 views. Then the expression sheet. Then the pose variations. A full character sheet for production can take days of skilled work, and even then it may only cover a fraction of the angles and poses needed downstream. For AI workflows — LoRA training, ControlNet conditioning, pose-driven generation — the problem is worse: you need dozens to hundreds of consistent reference views, and hand-drawing them defeats the purpose of automation.
+
+This tool generates complete character sheets from a single reference image. Submit one image, get back up to 96 camera angles, 16 body poses, 16 facial expressions, lighting and outfit variations, and full skeleton extraction with body, face, and hand keypoints — all in minutes instead of days.
+
+Built on [Qwen Image Edit](https://huggingface.co/collections/Qwen/qwen-image-edit-682e380fc18bf79d426663a2) models running on [Comfy Cloud](https://cloud.comfy.org), with inline [DWPose](https://github.com/Fannovel16/comfyui_controlnet_aux) skeleton extraction for downstream 3D and animation workflows.
 
 ### Original
 
