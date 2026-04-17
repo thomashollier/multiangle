@@ -4,6 +4,8 @@ A character sheet is the foundational document in any visual production pipeline
 
 This tool allows artists to iterate and experiment with their character designs in a more streamlined manner — generating up to 96 camera angles, 16 body poses, 16 facial expressions, lighting and outfit variations, and full skeleton extraction from a single reference image. The results still depend on artistic intent; careful prompting, thoughtful angle selection, and curation of the output are what make the difference.
 
+The output is assembled into a PowerPoint presentation template — a structured starting point for further refinement, not a finished deliverable.
+
 Built on [Qwen Image Edit](https://huggingface.co/collections/Qwen/qwen-image-edit-682e380fc18bf79d426663a2) models running on [Comfy Cloud](https://cloud.comfy.org), with inline [DWPose](https://github.com/Fannovel16/comfyui_controlnet_aux) skeleton extraction for downstream 3D and animation workflows.
 
 ### Original
@@ -134,13 +136,40 @@ The `poses/` directory contains OpenPose skeleton images from [Pose Depot](https
 ## Setup
 
 ```bash
-pip install aiohttp Pillow numpy
+pip install aiohttp Pillow numpy python-pptx
 export COMFY_CLOUD_API_KEY="your-key-here"  # from https://cloud.comfy.org
 ```
 
 The required models and LoRAs must be available in your Comfy Cloud workspace.
 
-## Usage
+## Quick Start
+
+Run everything — all angles, expressions, outfits, lighting, skeleton extraction, and presentation — with a single command:
+
+```bash
+python generate_character_sheet.py --image photo.png --name "Nora" --desc "A curious adventurer"
+```
+
+This produces a complete output directory with all passes and a PowerPoint template:
+
+```
+charsheet_nora/
+  angles/                    # 96 multi-angle renders + poses/
+  expressions/               # 16 facial expression variations
+  outfits/                   # 4 outfit variations
+  lighting/                  # 4 lighting variations
+  angles/nora_character_sheet.pptx
+```
+
+Skip specific passes if you don't need them:
+
+```bash
+python generate_character_sheet.py --image photo.png --name "Nora" --skip outfits lighting
+```
+
+## Individual Pipelines
+
+Each pass can also be run independently with `batch_multi_angle.py`:
 
 ```bash
 # Multi-angle: 2511 pipeline (default, 96 poses)
