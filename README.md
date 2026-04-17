@@ -14,11 +14,13 @@ When training LoRAs or building character assets, you often need systematic mult
 |----------|-------|-----------|--------|
 | **2511** (default) | [fal Multi-Angles](https://huggingface.co/fal/Qwen-Image-Edit-2511-Multiple-Angles-LoRA) | 96 (8 az x 4 el x 3 dist) | `QwenMultiangleCameraNode` |
 | **2509** | [dx8152 Multi-Angles](https://huggingface.co/dx8152/Qwen-Edit-2509-Multiple-angles) | 72 (8 az x 3 el x 3 dist) | Bilingual text prompts |
-| **anypose** | [lilylilith/AnyPose](https://huggingface.co/lilylilith/AnyPose) | Per pose image | Pose transfer from reference images |
 | **poses_prompt** | Qwen-Image-Edit-2511 + Lightning | 16 poses | Prompt-driven body pose variations |
 | **expressions** | Qwen-Image-Edit-2511 + Lightning | 16 emotions | Prompt-driven facial expression editing |
 | **lighting** | Qwen-Image-Edit-2511 + Lightning | 4 variations | Prompt-driven lighting changes |
 | **outfits** | Qwen-Image-Edit-2511 + Lightning | 4 variations | Prompt-driven outfit changes |
+| **anypose** | [lilylilith/AnyPose](https://huggingface.co/lilylilith/AnyPose) | Per pose image | Pose transfer from reference images |
+
+**Pose Detection** (`--get-pose`): Any pipeline above can be combined with `--get-pose` to run inline DWPose skeleton extraction on each render, producing skeleton images and OpenPose-format JSON keypoints (body, face, hands).
 
 ### Multi-Angle Grid (2511 / 2509)
 
