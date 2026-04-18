@@ -9,7 +9,7 @@ The output is assembled into a PowerPoint presentation template.
 
 Built on [Qwen Image Edit](https://huggingface.co/collections/Qwen/qwen-image-edit-682e380fc18bf79d426663a2) models running locally or on [cloud.comfy.org](https://cloud.comfy.org) (requires API access token), with inline [DWPose](https://github.com/Fannovel16/comfyui_controlnet_aux) skeleton extraction for downstream 3D and animation workflows.
 
-The extracted 2D poses can then be lifted into 3D — see [3D Rig Generation](#3d-rig-generation) for the full image-to-rigged-mesh pipeline.
+The extracted 2D character poses are then turned into fully rigged 3D assets for animation in standard DCC tools — see [3D Rig Generation](#3d-rig-generation) for the full image-to-rigged-mesh pipeline.
 
 ### Original
 
