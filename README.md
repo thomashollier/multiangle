@@ -4,7 +4,7 @@ A character sheet is the foundational document in any visual production pipeline
 
 This tool allows artists to iterate and experiment with their character designs in a more streamlined manner — generating up to 96 camera angles, 16 body poses, 16 facial expressions, lighting and outfit variations, and full skeleton extraction from a single reference image. The results still depend on artistic intent; careful prompting, thoughtful angle selection, and curation of the output are what make the difference.
 
-The output is assembled into a PowerPoint presentation template.
+The output is assembled into a PowerPoint presentation template. From there, a 3D rig can be generated from a single character image using [SAM 3D Body](https://github.com/facebookresearch/sam-3d-body) and imported into Blender as a fully rigged mesh.
 
 Built on [Qwen Image Edit](https://huggingface.co/collections/Qwen/qwen-image-edit-682e380fc18bf79d426663a2) models running locally or on [cloud.comfy.org](https://cloud.comfy.org) (requires API access token), with inline [DWPose](https://github.com/Fannovel16/comfyui_controlnet_aux) skeleton extraction for downstream 3D and animation workflows.
 
@@ -126,6 +126,39 @@ Produces a 16:9 PPTX with:
 ![Presentation template](examples/presentation_3x2.jpg)
 
 The script auto-discovers expression, outfit, lighting, and pose images from sibling output directories. You can also specify them explicitly with `--expressions-dir`, `--outfits-dir`, `--lighting-dir`, and `--poses-dir`.
+
+## 3D Rig Generation
+
+Generate a rigged 3D mesh from a single character image using [SAM 3D Body](https://github.com/facebookresearch/sam-3d-body) running on [Modal](https://modal.com). The pipeline extracts a full SMPL body mesh with 3D joint positions, skeleton hierarchy, and skin weights, then imports everything into Blender as a production-ready rig.
+
+![Pose to 3D rig](examples/pose_to_rig.png)
+
+### Step 1: Extract 3D body from image
+
+```bash
+cd sam3d_pipeline
+modal run run_sam3body.py --image-path /path/to/front_eyelevel.png
+```
+
+This runs SAM 3D Body inference on a GPU (A10G) via Modal and saves:
+- `sam3body_result.json` — 3D keypoints and joint coordinates
+- `exports/character_mesh.glb` — body mesh (GLB format)
+- `exports/character_mesh.obj` — body mesh (OBJ format)
+- `exports/character_full_data.json` — full data with vertices, faces, skeleton hierarchy, and skin weights
+
+### Step 2: Import into Blender and build rig
+
+```bash
+blender --background --python blender_import_rig.py
+```
+
+Or run the script from Blender's scripting tab. It reads `exports/character_full_data.json` and creates:
+- Mesh object with correct topology
+- Armature with 127-joint skeleton hierarchy
+- Vertex groups with skin weights
+- Exports as FBX and glTF
+
+![3D rig in Blender](examples/3d_rig.png)
 
 ## Included Pose Images
 
