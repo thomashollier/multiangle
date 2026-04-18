@@ -1,4 +1,5 @@
-# Character Sheet Generator
+<h1 align="center">Character Soup to Character Nuts</h1>
+<p align="center">AI assist for character assets from design sheets to rigged geometry</p>
 
 A character sheet is the foundational document in any visual production pipeline. In animation, games, comics, and AI-driven content, it defines how a character looks from every angle, in every pose, and with every expression — the single source of truth that keeps a character consistent across hundreds of shots, scenes, or generated images.
 
@@ -271,7 +272,7 @@ Existing files are automatically skipped, so you can safely re-run to fill in an
 
 # 3D Rig Generation
 
-Generate a rigged 3D mesh from a single character image using [SAM 3D Body](https://github.com/facebookresearch/sam-3d-body) running on [Modal](https://modal.com). The pipeline extracts a full SMPL body mesh with 3D joint positions, skeleton hierarchy, and skin weights, then imports everything into Blender as a production-ready rig.
+Generate a rigged 3D mesh from a single character image using [SAM 3D Body](https://github.com/facebookresearch/sam-3d-body) running on [Modal](https://modal.com). The pipeline extracts a full SMPL body mesh with 3D joint positions, skeleton hierarchy, and skin weights, then exports to standard interchange formats (FBX, glTF, OBJ) for import into any DCC tool.
 
 ![Pose to 3D rig](examples/pose_to_rig.png)
 
@@ -288,19 +289,17 @@ This runs SAM 3D Body inference on a GPU (A10G) via Modal and saves:
 - `exports/character_mesh.obj` — body mesh (OBJ format)
 - `exports/character_full_data.json` — full data with vertices, faces, skeleton hierarchy, and skin weights
 
-## Step 2: Import into Blender and build rig
+## Step 2: Build rig and export
 
-```bash
-blender --background --python blender_import_rig.py
-```
-
-Or run the script from Blender's scripting tab. It reads `exports/character_full_data.json` and creates:
-- Mesh object with correct topology
-- Armature with 127-joint skeleton hierarchy
+A sample import script (`blender_import_rig.py`) is included that reads `exports/character_full_data.json` and creates:
+- Mesh with correct topology
+- 127-joint skeleton hierarchy
 - Vertex groups with skin weights
 - Exports as FBX and glTF
 
-![3D rig in Blender](examples/3d_rig.png)
+The exported FBX/glTF files can be loaded into any DCC application.
+
+![3D rig](examples/3d_rig.png)
 
 ## License
 
